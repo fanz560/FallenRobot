@@ -10,8 +10,8 @@ from FallenRobot import telethn as client
 spam_chats = []
 
 
-@client.on(events.NewMessage(pattern="^/tagall ?(.*)"))
-@client.on(events.NewMessage(pattern="^@all ?(.*)"))
+@client.on(events.NewMessage(pattern="^/oi ?(.*)"))
+@client.on(events.NewMessage(pattern="^@oi ?(.*)"))
 async def mentionall(event):
     chat_id = event.chat_id
     if event.is_private:
@@ -72,7 +72,7 @@ async def mentionall(event):
         pass
 
 
-@client.on(events.NewMessage(pattern="^/cancel$"))
+@client.on(events.NewMessage(pattern="^/batal$"))
 async def cancel_spam(event):
     if not event.chat_id in spam_chats:
         return await event.respond("__There is no proccess on going...__")
@@ -101,5 +101,5 @@ __mod_name__ = "Tᴀɢ Aʟʟ"
 __help__ = """
 *Only for admins*
 
-❍ /tagall or @all '(reply to message or add another message) To mention all members in your group, without exception.'
+❍ /oi or @oi '(reply to message or add another message) To mention all members in your group, without exception.'
 """
